@@ -1,4 +1,5 @@
 # grub-2-for-usb
+This version is `BETA`!
 
 # Install
 * Step 1: You can download grub-2-for-usb at [here](https://github.com/torn4dom4n/grub-2-for-usb/archive/master.zip)!
