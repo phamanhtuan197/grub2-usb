@@ -2,11 +2,9 @@
 
 This version is `BETA`!
 
-# Install
+# Install 
 
-* Step 1: You can download lastest version `grub-2-for-usb` at [here](https://github.com/torn4dom4n/atom-icons/releases)!
-
-* Step 2: Extra and copy all files to usb. Now you can restart computer and use!
+* You can use [`UltraISO`](https://www.ezbsystems.com/ultraiso/) or [`refus`](https://rufus.akeo.ie/).
 
 # Updates
 
