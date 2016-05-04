@@ -1,24 +1,30 @@
-gfxmenu /gfxboot.cfg
-configfile (bd)/boot/antivirus.lst
+gfxmenu /GFXBoot.gfx
 
-iftitle [if exist /iso/bitdefender.iso] Bitdefender Rescue ISO
-	set isoname=/iso/bitdefender.iso && call /boot/loadrescue.g4b
+title 1. Bitdefender Rescue Iso
+set ISOFILE=/iso/bitdefender-rescue-cd.iso
+cat --length=0 %ISOFILE% > nul || find --set-root --devices=hf %ISOFILE%
+map %ISOFILE% (0xff)
+map --hook
+root (0xff)
+set SQUASH=rescue/livecd.squashfs
+set common=root=/dev/ram0  real_root=/dev/loop0 loop=%SQUASH% cdroot_marker=%SQUASH% initrd udev cdroot scandelay=2
+set silent=quiet splash
+set silent=
+set lang=en
+kernel /boot/kernel.i386-pc %common% %silent% isoboot=%ISOFILE% lang=%lang%
+initrd /boot/initfs.i386-pc
+boot
 
-iftitle [if exist /rescue/rescue.iso] Kaspersky Rescue 10
-	set isoname=rescue/rescue.iso && call /boot/loadrescue.g4b
+title 2. Kaspersky Rescue (rescue.iso)
+set KRD10ISO=/rescue/rescue.iso
+set kernel=(0xff)/boot/rescue root=live:UUID=A1234-1234 rootfstype=auto vga=791 init=/init kav_lang=en udev liveimg splash quiet doscsi nomodeset
+set initrd=(0xff)/boot/rescue.igz
+map %KRD10ISO% (0xff) || map --mem %KRD10ISO% (0xff) 
+map --hook > nul 
+kernel %kernel% 
+initrd %initrd%
+boot
 
-iftitle [if exist /iso/avg.iso] AVG Rescue CD
-	set isoname=/iso/avg.iso && call /boot/loadrescue.g4b
-
-iftitle [if exist /iso/avira.iso] Avira Rescue System
-	set isoname=/iso/avira.iso && call /boot/loadrescue.g4b
-
-iftitle [if exist /iso/drweb.iso] Dr.Web® LiveDisk
-	set isoname=/iso/drweb.iso && call /boot/loadrescue.g4b
-
-iftitle [if exist /iso/eset.iso] ESET SysRescue Live
-	set isoname=/iso/eset.iso  && call /boot/loadrescue.g4b
-
-title <--- Back Main Menu
-	find --set-root /menu.lst
-	configfile /menu.lst
+title 3. <--- Back Main Menu
+find --set-root --ignore-floppies --ignore-cd /menu.lst
+configfile /menu.lst

@@ -1,26 +1,48 @@
-gfxmenu /gfxboot.cfg
-configfile (bd)/boot/linux.lst
+gfxmenu /GFXBoot.gfx
 
-iftitle [if exist /iso/ubuntu.iso] Ubuntu LiveCD
-	set isoname=/iso/ubuntu.iso
-	find --set-root %isoname%
-	map  %isoname% (0xff) || map --mem %isoname% (0xff)
+title 1. Ubuntu LiveCD Destop amd64
+	find --set-root /iso/ubuntu-desktop-amd64.iso
+	map /iso/ubuntu-desktop-amd64.iso (0xff)
 	map --hook
 	root (0xff)
-	kernel /casper/vmlinuz.efi boot=casper iso-scan/filename=%isoname% quiet splash
+	kernel /casper/vmlinuz.efi boot=casper iso-scan/filename=/iso/ubuntu-desktop-amd64.iso quiet splash
 	initrd /casper/initrd.lz
 	boot
 
-iftitle Gparted Live CD i486
-    set isoname=/iso/gparted.iso
-	find --set-root %isoname%
-    map  %isoname% (0xff) || map --mem %isoname% (0xff)
-    map --hook
-    root (0xff)
-    kernel /live/vmlinuz  boot=live config union=aufs noswap noprompt vga=788 ip=frommedia findiso=/iso/gparted-live-i486.iso toram=filesystem.squashfs
-    initrd /live/initrd.img
+title 2. Ubuntu Install Desktop amd64
+	find --set-root /iso/ubuntu-desktop-amd64.iso
+	map /iso/ubuntu-desktop-amd64.iso (0xff)
+	map --hook
+	root (0xff)
+	kernel /casper/vmlinuz.efi boot=casper only-ubiquity iso-scan/filename=/iso/ubuntu-desktop-amd64.iso quiet splash
+	initrd /casper/initrd.lz
+	boot
 
-title <--- Back Main Menu
-	find --set-root  /menu.lst
-	configfile /menu.lst
+title 3. Ubuntu LiveCD Desktop i386
+	find --set-root /iso/ubuntu-desktop-i386.iso
+	map /iso/ubuntu-desktop-i386.iso (0xff) || map --mem /iso/ubuntu-desktop-i386.iso (0xff)
+	map --hook
+	root (0xff)
+	kernel /casper/vmlinuz   boot=casper iso-scan/filename=/iso/ubuntu-desktop-i386.iso quiet splash --
+	initrd /casper/initrd.lz
+
+title 4. Ubuntu Install Desktop i386
+	find --set-root /iso/ubuntu-desktop-i386.iso
+	map /iso/ubuntu-desktop-i386.iso (0xff) || map --mem /iso/ubuntu-desktop-i386.iso (0xff)
+	map --hook
+	root (0xff)
+	kernel /casper/vmlinuz   boot=casper only-ubiquity iso-scan/filename=/iso/ubuntu-desktop-i386.iso quiet splash --
+	initrd /casper/initrd.lz
+
+title 5. Gparted Live CD i486
+    	find --set-root /iso/gparted-live-i486.iso
+    	map /iso/gparted-live-0.11.0-10.iso (0xff) || map --mem /iso/gparted-live-i486.iso (0xff)
+    	map --hook
+    	root (0xff)
+    	kernel /live/vmlinuz  boot=live config union=aufs noswap noprompt vga=788 ip=frommedia findiso=/iso/gparted-live-i486.iso toram=filesystem.squashfs
+    	initrd /live/initrd.img
+
+title 6. <--- Back Main Menu
+find --set-root --ignore-floppies --ignore-cd /menu.lst
+configfile /menu.lst
 

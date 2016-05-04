@@ -61,6 +61,7 @@
 *xnu_splash: xnu
 *zfskey: zfscrypt
 .: configfile
+915resolution: 915resolution
 [: test
 authenticate: normal
 background_color: gfxterm_background
@@ -102,6 +103,7 @@ gdbstub_break: gdb
 gdbstub_stop: gdb
 gptsync: gptsync
 help: minicmd
+hwmatch: hwmatch
 initrd16: linux16
 initrd: linux
 keymap: keylayouts
