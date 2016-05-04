@@ -8,4 +8,4 @@ This version is `BETA`!
 
 # License
 
-[MIT](https://opensource.org/licenses/MIT)
+[MIT](./LICENSE.md)
