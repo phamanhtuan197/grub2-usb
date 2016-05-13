@@ -1,4 +1,4 @@
-# grub-2-for-usb
+# grub-2-usb
 
 This version is `BETA`!
 
