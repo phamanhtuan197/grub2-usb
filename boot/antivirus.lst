@@ -1,30 +1,28 @@
-gfxmenu /GFXBoot.gfx
-
-title 1. Bitdefender Rescue Iso
-set ISOFILE=/iso/bitdefender-rescue-cd.iso
-cat --length=0 %ISOFILE% > nul || find --set-root --devices=hf %ISOFILE%
-map %ISOFILE% (0xff)
-map --hook
-root (0xff)
-set SQUASH=rescue/livecd.squashfs
-set common=root=/dev/ram0  real_root=/dev/loop0 loop=%SQUASH% cdroot_marker=%SQUASH% initrd udev cdroot scandelay=2
-set silent=quiet splash
-set silent=
-set lang=en
-kernel /boot/kernel.i386-pc %common% %silent% isoboot=%ISOFILE% lang=%lang%
-initrd /boot/initfs.i386-pc
-boot
+title 1. Bitdefender Rescue ISO
+  set =/iso/bitdefender-rescue-cd.iso
+  cat --length=0 %% > nul || find --set-root --devices=hf %%
+  map %% (0xff)
+  map --hook
+  root (0xff)
+  set SQUASH=rescue/livecd.squashfs
+  set common=root=/dev/ram0  real_root=/dev/loop0 loop=%SQUASH% cdroot_marker=%SQUASH% initrd udev cdroot scandelay=2
+  set silent=quiet splash
+  set silent=
+  set lang=en
+  kernel /boot/kernel.i386-pc %common% %silent% isoboot=%% lang=%lang%
+  initrd /boot/initfs.i386-pc
+  boot
 
 title 2. Kaspersky Rescue (rescue.iso)
-set KRD10ISO=/rescue/rescue.iso
-set kernel=(0xff)/boot/rescue root=live:UUID=A1234-1234 rootfstype=auto vga=791 init=/init kav_lang=en udev liveimg splash quiet doscsi nomodeset
-set initrd=(0xff)/boot/rescue.igz
-map %KRD10ISO% (0xff) || map --mem %KRD10ISO% (0xff) 
-map --hook > nul 
-kernel %kernel% 
-initrd %initrd%
-boot
+  set krd10iso=/rescue/rescue.iso
+  set kernel=(0xff)/boot/rescue root=live:UUID=A1234-1234 rootfstype=auto vga=791 init=/init kav_lang=en udev liveimg splash quiet doscsi nomodeset
+  set initrd=(0xff)/boot/rescue.igz
+  map %krd10iso% (0xff) || map --mem %krd10iso% (0xff)
+  map --hook > nul
+  kernel %kernel%
+  initrd %initrd%
+  boot
 
-title 3. <--- Back Main Menu
-find --set-root --ignore-floppies --ignore-cd /menu.lst
-configfile /menu.lst
+title 3. Back Main Menu
+  find --set-root --ignore-floppies --ignore-cd /menu.lst
+  configfile /menu.lst

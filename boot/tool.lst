@@ -1,62 +1,50 @@
-gfxmenu /GFXBoot.gfx
+title 1. Mini XP
+  find --set-root /HBCD/XP/XP.BIN
+  chainloader /HBCD/XP/XP.BIN
 
-title 1. Mini XP 15.2 (HBCD/XP)
-find --set-root /HBCD/XP/XP.BIN
-chainloader /HBCD/XP/XP.BIN
+title 2. Dos Programs
+  find --set-root --ignore-floppies --ignore-cd /iso/dos.iso
+  map --heads=0 --sectors-per-track=0 /iso/dos.iso (hd32)
+  map --hook
+  root (hd32)
+  chainloader (hd32)
 
-title 2. Dos Programs (dos.iso)
-find --set-root --ignore-floppies --ignore-cd /iso/dos.iso
-map --heads=0 --sectors-per-track=0 /iso/dos.iso (hd32)
-map --hook
-root (hd32)
-chainloader (hd32)
+title 4. MiniTool Partition Wizard
+  find --set-root /iso/pw.iso
+  map /iso/pw.iso (hd32)
+  map --hook
+  root (hd32)
+  chainloader (hd32)
 
-title 3. PLoP Boot Manager
-find --set-root /boot/plpbt.bin
-kernel /boot/plpbt.bin
+title 5. Partition Guru
+  map --mem /iso/partguru.ima (fd0)
+  map --hook
+  chainloader (fd0)+1
+  map (hd1) (hd0)
+  map --hook
+  rootnoverify (fd0)
 
-title 4. MiniTool Partition Wizard (pw.iso)
-find --set-root /iso/pw.iso
-map /iso/pw.iso (hd32)
-map --hook
-root (hd32)
-chainloader (hd32)
+title 6. Norton Ghost
+  find --set-root /iso/ghost115.iso
+  map /iso/ghost115.iso (hd32)
+  map --hook
+  chainloader (hd32)
 
-title 5. Partition Guru (partguru.ima)
-map --mem /iso/partguru.ima (fd0)
-map --hook
-chainloader (fd0)+1
-map (hd1) (hd0)
-map --hook
-rootnoverify (fd0)
+title 7. Konboot
+  find --set-root /iso/konboot.iso
+  map /iso/konboot.iso (hd32)
+  map --hook
+  root (hd32)
+  chainloader (hd32)
 
-title 6. Norton Ghost (ghost115.iso)
-find --set-root /iso/ghost115.iso
-map /iso/ghost115.iso (hd32)
-map --hook
-chainloader (hd32)
+title 8. HDD Regenerator
+  map --mem /iso/hddreg.ima (fd0)
+  map --hook
+  chainloader (fd0)+1
+  map (hd1) (hd0)
+  map --hook
+  rootnoverify (fd0)
 
-#title Hiren boot Mini
-#map /iso/hiren.ima (fd0)
-#map --hook
-#chainloader (fd0)+1
-#rootnoverify (fd0)
-
-title 7. Konboot (konboot.iso)
-find --set-root /iso/konboot.iso
-map /iso/konboot.iso (hd32)
-map --hook
-root (hd32)
-chainloader (hd32)
-
-title 8. HDD Regenerator (hddreg.ima)
-map --mem /iso/hddreg.ima (fd0)
-map --hook
-chainloader (fd0)+1
-map (hd1) (hd0)
-map --hook
-rootnoverify (fd0)
-
-title 9. <--- Back Main Menu
-find --set-root --ignore-floppies --ignore-cd /menu.lst
-configfile /menu.lst
+title 9. Back Main Menu
+  find --set-root --ignore-floppies --ignore-cd /menu.lst
+  configfile /menu.lst

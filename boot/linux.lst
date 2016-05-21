@@ -1,5 +1,3 @@
-gfxmenu /GFXBoot.gfx
-
 title 1. Ubuntu LiveCD Destop amd64
 	find --set-root /iso/ubuntu-desktop-amd64.iso
 	map /iso/ubuntu-desktop-amd64.iso (0xff)
@@ -35,14 +33,13 @@ title 4. Ubuntu Install Desktop i386
 	initrd /casper/initrd.lz
 
 title 5. Gparted Live CD i486
-    	find --set-root /iso/gparted-live-i486.iso
-    	map /iso/gparted-live-0.11.0-10.iso (0xff) || map --mem /iso/gparted-live-i486.iso (0xff)
-    	map --hook
-    	root (0xff)
-    	kernel /live/vmlinuz  boot=live config union=aufs noswap noprompt vga=788 ip=frommedia findiso=/iso/gparted-live-i486.iso toram=filesystem.squashfs
-    	initrd /live/initrd.img
+	find --set-root /iso/gparted-live-i486.iso
+	map /iso/gparted-live-0.11.0-10.iso (0xff) || map --mem /iso/gparted-live-i486.iso (0xff)
+	map --hook
+	root (0xff)
+	kernel /live/vmlinuz  boot=live config union=aufs noswap noprompt vga=788 ip=frommedia findiso=/iso/gparted-live-i486.iso toram=filesystem.squashfs
+	initrd /live/initrd.img
 
-title 6. <--- Back Main Menu
-find --set-root --ignore-floppies --ignore-cd /menu.lst
-configfile /menu.lst
-
+title 6. Back Main Menu
+	find --set-root --ignore-floppies --ignore-cd /menu.lst
+	configfile /menu.lst
