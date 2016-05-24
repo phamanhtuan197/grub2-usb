@@ -1,3 +1,6 @@
+# v0.1.4
+* Fix boot WinPE
+
 # v0.1.3
 * Remove file
 * Creat wimxpe.wim and apps.wim
