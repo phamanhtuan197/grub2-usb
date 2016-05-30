@@ -1,5 +1,4 @@
-# grub2-usb
-[![grub2-usb version](https://img.shields.io/badge/release-v0.1.4-blue.svg)](https://github.com/torn4dom4n/grub2-usb/releases/tag/0.1.4)
+# grub2-usb [![grub2-usb version](https://img.shields.io/badge/release-v0.1.4-blue.svg)](https://github.com/torn4dom4n/grub2-usb/releases/tag/0.1.4)
 
 # Install 
 * You can use [`UltraISO`](https://www.ezbsystems.com/ultraiso/) or [`refus`](https://rufus.akeo.ie/) format usb with `mbr`.
