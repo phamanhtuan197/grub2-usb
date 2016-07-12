@@ -1,1 +1,1 @@
-You can download and copy file iso to this folder!
+You can download and copy [ISO files](https://www.fshare.vn/folder/SX12W3HWRTMD) to this folder!
