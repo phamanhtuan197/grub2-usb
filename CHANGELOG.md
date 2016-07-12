@@ -1,3 +1,6 @@
+# v0.2.0
+* Fix theme and icons
+
 # v0.1.5
 * Fix boot UEFI-IA32
 * Remove grub4dos
