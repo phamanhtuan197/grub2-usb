@@ -1,5 +1,6 @@
 # v0.2.0
 * Fix theme and icons
+* Update information
 
 # v0.1.5
 * Fix boot UEFI-IA32
