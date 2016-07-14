@@ -1,4 +1,5 @@
 # v1.0.0
+* Create elementaryOS boot
 * Fix path
 
 # v0.2.1
