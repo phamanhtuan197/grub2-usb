@@ -1,6 +1,7 @@
 # v1.0.0
 * Create elementaryOS boot
 * Fix path
+* Create screenshot
 
 # v0.2.1
 * Fix theme and icons
