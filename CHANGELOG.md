@@ -1,3 +1,6 @@
+# v1.0.0
+* Fix path
+
 # v0.2.1
 * Fix theme and icons
 * Update information
