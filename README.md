@@ -1,6 +1,17 @@
 # grub2-usb
 [![GitHub version](https://badge.fury.io/gh/torn4dom4n%2Fgrub2-usb.svg)](https://badge.fury.io/gh/torn4dom4n%2Fgrub2-usb)
 
+# Screenshot
+
+#### Main menu
+![Main menu](./screenshot/main-menu.png)
+
+#### Linux menu
+![Linux menu](./screenshot/linux-menu.png)
+
+#### Dos menu
+![Dos menu](./screenshot/dos-menu.png)
+
 # Install
 
 ## Step 1:
