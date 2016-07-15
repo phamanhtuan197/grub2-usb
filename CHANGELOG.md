@@ -1,3 +1,7 @@
+# v1.0.1
+* Fix path config files
+* Fix windows-xp icon
+
 # v1.0.0
 * Create elementaryOS boot
 * Fix path
